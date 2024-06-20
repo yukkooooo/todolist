@@ -1,7 +1,11 @@
 /* eslint-disable no-restricted-globals */
 import React, { useState } from 'react';
-
+import Status from './compornents/Status';
 import './App.css';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import Side from './compornents/Side';
+
+
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -71,12 +75,21 @@ function App() {
   };
 
 
-
   return (
+    <div className='header'>
+      <span >Todoリスト with Typescript</span>
     <div className="App">
-      <div>
-        <h2>Todoリスト with Typescript</h2>
+
+      
+      
+      <div className='list'>
+        
+        <div className='status'>
+        <Status />
+      </div>
+
         <form onSubmit={(e) => handleSubmit(e)}>
+
 
           <input
             type="text"
@@ -86,6 +99,7 @@ function App() {
 
           <input type='submit' value="作成" className="submitButton" />
 
+         
         </form>
         {/* タスク設定が完了したら */}
         <ul className='todoList'>
@@ -109,8 +123,18 @@ function App() {
         </ul>
 
       </div>
+      <div className='side'>
+        <Side />
+
+      </div>
+
+    </div>
+    
     </div>
   );
+
+
+
 }
 
 export default App;
